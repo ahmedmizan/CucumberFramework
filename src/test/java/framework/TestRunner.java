@@ -14,9 +14,7 @@ import org.junit.runner.RunWith;
         //Path to your feature file
         features = {"src/test/resources/features"},
         // Specify tags to be executed
-        //tags = {"@login-4"},
-        //tags={"@messenger-1"},
-        tags={"@darkSky-4"},
+        tags = {"@login-4"},
 
         //Specify step definition package name (Note: make sure to have this package on current directory) 
         glue = {"stepdefinition"}

@@ -7,9 +7,7 @@ import framework.webPages.HomePage;
 import framework.webPages.LoginPage;
 import org.testng.Assert;
 
-/**
- * Created by mohammadmuntakim.
- */
+
 public class LoginSD {
 
     private HomePage homePage = new HomePage();
@@ -20,7 +18,7 @@ public class LoginSD {
         Assert.assertEquals(SharedSD.getDriver().getTitle(), "Facebook - Log In or Sign Up", "Invalid Home Page");
     }
 
-    @When("^I enter (.+) into (username|password|firstname|lastname|mobile number|new password) text fields on home screen$")
+    @When("^I enter (.+) into (username|password) text fields on home screen$")
     public void enterDataIntoTextFields(String value, String textFields) {
 
         switch (textFields) {
@@ -29,18 +27,6 @@ public class LoginSD {
                 break;
             case "password":
                 homePage.enterPassword(value);
-                break;
-            case "firstname":
-                homePage.enterFirstName(value);
-                break;
-            case "lastname":
-                homePage.enterLastName(value);
-                break;
-            case "mobile number":
-                homePage.enterMobileNumber(value);
-                break;
-            case "new password":
-                homePage.enterNewPassword(value);
                 break;
         }
     }
@@ -63,15 +49,4 @@ public class LoginSD {
         Assert.assertEquals(loginPage.getPageHeader(), "Log Into Facebook");
     }
 
-    @Then("^I verify invalid signup error message$")
-    public void verifySignUpErrorMessage() {
-        Assert.assertEquals(homePage.getErrorMessage(), "Invalid signup");
-    }
-
-
-
-    @Then("^I verify that signup button is disable at homepage$")
-    public void verifyDisableSignupButton() {
-        Assert.assertFalse(homePage.isSignupButtonEnable(), "Signup button should be disable");
-    }
 }

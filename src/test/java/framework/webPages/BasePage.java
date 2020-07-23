@@ -2,19 +2,18 @@ package framework.webPages;
 
 import com.google.common.base.Function;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.*;
 
 import stepdefinition.SharedSD;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
-/**
- * Created by mohammadmuntakim
- */
+
 public class BasePage {
+
+	WebDriverWait wait = new WebDriverWait(SharedSD.getDriver(), 30);
 
 	// This is the most common wait function used in selenium
 	public static WebElement webAction(final By locator) {
@@ -74,53 +73,24 @@ public class BasePage {
 		return webAction(locator).isEnabled();
 	}
 
-	public void selectFromCalendar(By monthNameLocator,String expectedMonthText,By arraySignLocator,By allDaysLocatorOfMonth){
 
-		while (true) {
-
-			String text = SharedSD.getDriver().findElement( monthNameLocator ).getText();
-
-			if (text.equals( expectedMonthText ))
-			{
-				break;
-
-			}
-			else
-			{
-				SharedSD.getDriver().findElement( arraySignLocator ).click();
-
-			}
-		}
-		SharedSD.getDriver().findElement( allDaysLocatorOfMonth ).click();
-
-	}
-
-
-	public void selectFromMenuList(By allMenuListLocator,String IndivisualMenuText){
-		List<WebElement> list = SharedSD.getDriver().findElements(allMenuListLocator);
-		for (WebElement ele : list) {
-			if (ele.getText().contains(IndivisualMenuText)) {
-				ele.click();
-				break;
-			}
-		}
-	}
-
-	public void autoComplete(By destinationFieldLocator, String cityName, By suggestedCities, String finalDestination){
-		setValue( destinationFieldLocator , cityName);
-		List<WebElement> list = SharedSD.getDriver().findElements(suggestedCities);
-		for (WebElement ele : list) {
-			if(ele.getText().contains(finalDestination)) {
-				ele.click();
-				break;
-			}
-		}
-	}
 
 	public void scrollToElement(By locator) {
 		JavascriptExecutor js = (JavascriptExecutor) SharedSD.getDriver();
 		WebElement element = SharedSD.getDriver().findElement(locator);
 		js.executeScript("arguments[0].scroolIntoView(true);" , element);
+	}
+
+	public void implcitWait(int second){
+		SharedSD.getDriver().manage().timeouts().implicitlyWait(second, TimeUnit.SECONDS);
+	}
+
+	public void waitForClickable(By locator){
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
+
+	public void waitTobeVisible(By locator){
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 	}
 
 
