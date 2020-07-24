@@ -12,17 +12,16 @@ public class SharedSD {
 
 	private static WebDriver driver = null;
 
-	@Before("@web")
+	@Before()
 	public static void before() {
-
 		ConfigReader configReader = new ConfigReader();
-		System.setProperty("webdriver.chrome.driver",
-				configReader.getChromeDriverPath());
+//		System.setProperty("webdriver.chrome.driver", "C:\\Users\\ahmed\\workspace\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", configReader.getChromeDriverPath());
 		driver = new ChromeDriver();
 		driver.get(configReader.getUrl());
 	}
 
-	@After("@web")
+	@After()
 	public static void after() {
 		if (driver != null) {
 			driver.manage().deleteAllCookies();

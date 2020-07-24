@@ -15,7 +15,7 @@ public class LoginSD {
 
     @Given("^I am on home page$")
     public void iAmOnHomePage() {
-        Assert.assertEquals(SharedSD.getDriver().getTitle(), "Facebook - Log In or Sign Up", "Invalid Home Page");
+        Assert.assertEquals(SharedSD.getDriver().getTitle(), "Facebook - Log In or Sign Up");
     }
 
     @When("^I enter (.+) into (username|password) text fields on home screen$")
