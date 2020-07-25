@@ -12,19 +12,20 @@ public class FaceBookSignUpSD {
 
     @Given("^I am on facebook home page$")
     public void IAmOnFacebookHomePage(){
-        Assert.assertEquals(SharedSD.getDriver().getTitle(),"Facebook=Log In or sign Up");
+        Assert.assertEquals(SharedSD.getDriver().getTitle(),"Facebook - Log In or Sign Up");
 
     }
     @When("^I enter (.*) in name text field$")
     public void IEnterFirstNameInNameTextField(String firstName){
-
-    }@When("^I enter (.*) in text field$")
+        fbLendingPage.enterFirstName(firstName);
+    }
+    @When("^I enter (.*) in text field$")
     public void IEnterLastNameInTextField(String lastName){
         fbLendingPage.enterLastname(lastName);
     }
     @When("^I enter (.*) in mobil no field$")
-    public void IEnterMobileNumInMobilNoField(){
-
+    public void IEnterMobileNumInMobilNoField(String mobile){
+        fbLendingPage.enterMobileorEmail(mobile);
     }
     @When("^I enter (.*) in password field$")
     public void IEnterPasswordInPasswordField(String password){
