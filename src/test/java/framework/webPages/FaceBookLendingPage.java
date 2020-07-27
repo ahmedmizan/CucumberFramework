@@ -7,7 +7,8 @@ public class FaceBookLendingPage extends BasePage {
     //Locators
     private By emailTextField = By.id("email");
     private By passTextField = By.id("pass");
-    private By loginButton = By.id("loginbutton");
+    private By loginButton = By.id("u_0_b");
+
     private By firstname = By.xpath("//input[@name='firstname']");
     private By lastname = By.xpath("//input[@name='lastname']");
     private By mobileNum = By.xpath("//input[@name='reg_email__']");

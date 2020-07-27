@@ -18,7 +18,6 @@ Feature: Sign-up feature
     And I click on your account link
     And Click on login and security link
     And I click on create your amazon account
-#        And Again click on create account
     And Enter Ahmed Abdullah into name field
     And Enter ahmed@gmail.com into Email field
     And Enter abcd1234 into Password field

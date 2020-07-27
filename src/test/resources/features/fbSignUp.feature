@@ -5,10 +5,12 @@ Feature: FB Sign-up functionality
 
   @fb-sign-in
   Scenario: Verify Invalid Login
-    When I enter mohammad@gmail.com into username text fields on home screen
-    And I enter test1234 into password text fields on home screen
+    When I enter mizam12@gmail.com into user name text fields on home screen
+    And I enter test1456 into text fields on home screen
     And I click on login button on home screen
     Then I verify that i am on invalid login page
+
+
 
   @fb-sign-up
   Scenario: Verify gender error
