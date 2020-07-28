@@ -23,7 +23,7 @@ Feature: FB Sign-up functionality
     Then I receive a error msg
 
   @fb-sign-up-2
-  Scenario Outline: Verify multiple sign-up
+  Scenario Outline: Verify sign-up for <firstName>
     When I enter <firstName> in name text field
     And  I enter <lastName> in text field
     And I enter <mobileNum> in mobil no field
@@ -36,8 +36,8 @@ Feature: FB Sign-up functionality
       |firstName| lastName | mobileNum | password | month | date | year |
       | Mizan   | Ahmed    |  4637264  |  wgfqe235| Feb   | 23   | 1976 |
       | Murad   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
-      | Tahir   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
-      | Jamil   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
-      | Rubel   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
-      | Shanta  | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
-      | Manha   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
+#      | Tahir   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
+#      | Jamil   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
+#      | Rubel   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
+#      | Shanta  | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |
+#      | Manha   | Ahmed    |  4667264  |  wgfsada5| Mar   | 13   | 1986 |

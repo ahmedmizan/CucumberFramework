@@ -2,6 +2,8 @@ package stepdefinition;
 
 import java.util.concurrent.TimeUnit;
 
+import cucumber.api.Scenario;
+import framework.webPages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import cucumber.api.java.After;
@@ -22,7 +24,10 @@ public class SharedSD {
 	}
 
 	@After()
-	public static void after() {
+	public static void after(Scenario scenario) {
+		if(scenario.isFailed()) {
+			BasePage.takeScreenSHot(scenario.getName());
+		}
 		if (driver != null) {
 			driver.manage().deleteAllCookies();
 			driver.quit();

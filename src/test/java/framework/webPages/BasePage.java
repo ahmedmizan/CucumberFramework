@@ -1,12 +1,15 @@
 package framework.webPages;
 
 import com.google.common.base.Function;
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
 import stepdefinition.SharedSD;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -167,6 +170,16 @@ public class BasePage {
 		SharedSD.getDriver().switchTo().alert().accept();
 	}
 
+	public static void takeScreenSHot(String fileName){
+		TakesScreenshot screenshot = (TakesScreenshot)SharedSD.getDriver();
+		File image = screenshot.getScreenshotAs(OutputType.FILE);
+		File location = new File("./Screenshots/" + fileName + ".png");
+		try {
+			FileUtils.copyFile(image,location);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 }

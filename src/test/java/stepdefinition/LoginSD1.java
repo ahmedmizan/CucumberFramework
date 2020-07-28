@@ -21,8 +21,8 @@ public class LoginSD1 {
     @When("^I enter(.*)into user name text fields on home screen$")
     public void IEnterEmailIntoUsernameTextFieldsOnHomeScreen(String value) {
        homePage.enterEmail(value);
-
     }
+
     @When("^I enter(.*) into text fields on home screen$")
     public void IEnterPasswordIntoPasswordTextFieldsOnHomeScreen(String value){
       homePage.enterPassword(value);
